@@ -1,0 +1,132 @@
+{
+  "import from": {
+    "prefix": "importf",
+    "body": [
+      "import $2 from '$1'"
+    ]
+  },
+  "React Stateless Class Component": {
+    "prefix": "rlsc-class",
+    "body": [
+      "import React from 'react';",
+      "import { makeStyles } from '@material-ui/core';",
+      "",
+      "class ${1:Component} extends React.Component {",
+      "\tconstructor(props) {",
+      "\t\tsuper(props);",
+      "\t\tthis.state = {",
+      "\t\t};",
+      "\t};",
+      "",
+      "\trender() {",
+      "\tconst classes = useStyles();",
+      "",
+      "\t\treturn (",
+      "\t\t\t<React.Fragment>",
+      "",
+      "\t\t\t</React.Fragment>",
+      "\t\t);",
+      "\t}",
+      "};",
+      "",
+      "const useStyles = makeStyles((theme) => ({}));",
+      "",
+      "export default ${1:Component};",
+      ""
+    ]
+  },
+  "React Stateless Function Component": {
+    "prefix": "rlsc-Func",
+    "body": [
+      "import React from 'react';",
+      "import { makeStyles } from '@material-ui/core';",
+      "",
+      "function ${1:Component} = ({ props }) => {",
+      "",
+      "\tconst classes = useStyles();",
+      "",
+      "\treturn (",
+      "\t\t<React.Fragment>",
+      "",
+      "\t\t</React.Fragment>",
+      "\t);",
+      "};",
+      "",
+      "",
+      "const useStyles = makeStyles((theme) => ({}));",
+      "",
+      "export default ${1:Component};",
+      ""
+    ]
+  },
+  "React Stateless Const Component": {
+    "prefix": "rlsc-Const",
+    "body": [
+      "import React from 'react';",
+      "import { makeStyles } from '@material-ui/core';",
+      "",
+      "const ${1:Component} = ({ props }) => {",
+      "",
+      "\tconst classes = useStyles();",
+      "",
+      "\treturn (",
+      "\t\t<React.Fragment>",
+      "",
+      "\t\t</React.Fragment>",
+      "\t);",
+      "};",
+      "",
+      "const useStyles = makeStyles((theme) => ({}));",
+      "",
+      "export default ${1:Component};",
+      ""
+    ]
+  },
+  "React Stateless Test Component": {
+    "prefix": "rlsc-Test",
+    "body": [
+      "import React from 'react';",
+      "import { shallow, configure } from 'enzyme';",
+      "import Adapter from 'enzyme-adapter-react-16';",
+      "import toJson from 'enzyme-to-json';",
+      "",
+      "import ${1:Component} from '../${1:Component}';",
+      "",
+      "configure({ adapter: new Adapter()});",
+      "",
+      "describe('${1:Component}', () => {",
+      "\tlet wrapper = null;",
+      "\tconst defaultProps = {};",
+      "",
+      "\tconst mountComponent = (newProps = {}) => {",
+      "\t\twrapper = shallow(<${1:Component} {...defaultProps} {...newProps} />);",
+      "\t};",
+      "",
+      "\tbeforeEach(() => {",
+      "\t\tmountComponent();",
+      "\t});",
+      "",
+      "\tafterEach(() => {",
+      "\t\tjest.clearAllMocks();",
+      "\t});",
+      "",
+      "\tit('Deve renderizar o componente sem erro', () => {",
+      "\t\texpect(toJson(wrapper)).toMatchSnapshot();",
+      "\t});",
+      "",
+      "\tdescribe('dados do componente', () => {",
+      "\t\tit('Renderizar o esqueleto no estado loading', () => {",
+      "\t\t\texpect(1 + 1).toBe(3);",
+      "\t\t});",
+      "\t});",
+      "});",
+      ""
+    ]
+  },
+  "React console": {
+    "prefix": "trace",
+    "body": [
+      "console.log('trace ${1:Component}:', ${1:Component});"
+    ]
+  }
+}
